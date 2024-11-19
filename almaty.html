@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алматы - Путеводитель</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header id="main-header">
+    <!-- Кнопка для изменения темы -->
+    <button id="themeSwitcher" class="text-button">Переключить тему</button>
+
+    <section>
+        <h2>Текущая дата и время</h2>
+        <p id="currentDateTime"></p>
+    </section>
+
+    <h1>Добро пожаловать в Алматы</h1>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                Другие города
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item m-4">
+                        <a class="nav-link" href="tokyo.html">Tokyo</a>
+                    </li>
+                    <li class="nav-item m-4">
+                        <a class="nav-link" href="paris.html">Paris</a>
+                    </li>
+                    <li class="nav-item m-4">
+                        <a class="nav-link" href="newyork.html">New-york</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Общие сведения о Алматы</h2>
+        <p>Алматы — крупнейший город Казахстана и его культурная и деловая столица. Город расположен у подножия гор Тянь-Шань и предлагает потрясающие виды на окружающую природу.</p>
+    </section>
+
+    <section>
+        <h2>Достопримечательности</h2>
+        <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://www.chowtraveller.com/wp-content/uploads/2018/07/DSCF9380-1024x683.jpg" class="d-block w-100" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://avatars.mds.yandex.net/get-vertis-journal/4080458/shutterstock_1653501265.jpg_1702312946962/orig" class="d-block w-100" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://visitalmaty.kz/wp-content/uploads/2023/12/czentralnyj-gosudarstvennyj-muzej-respubliki-kazahstan-1619x1080.png" class="d-block w-100" alt="Slide 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="container">
+            <div class="col">
+                <div class="row border-custom m-2 p-2">
+                    <p class="title">Горы Алматы</p>
+                    <div class="info hidden">
+                        <p>Потрясающие виды на горные массивы Тянь-Шань.</p>
+                    </div>
+                    <button class="read-more-btn">Читать дальше</button>
+                </div>
+
+                <div class="row border-custom m-2 p-2">
+                    <p class="title">Высокогорный каток Медео</p>
+                    <div class="info hidden">
+                        <p>Знаменитый каток, расположенный в горах недалеко от города.</p>
+                    </div>
+                    <button class="read-more-btn">Читать дальше</button>
+                </div>
+
+                <div class="row border-custom m-2 p-2">
+                    <p class="title">Центральный государственный музей</p>
+                    <div class="info hidden">
+                        <p>Один из самых больших музеев в Центральной Азии.</p>
+                    </div>
+                    <button class="read-more-btn">Читать дальше</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Советы путешественникам</h2>
+        <p>Лучшее время для посещения Алматы — весна или осень, когда природа особенно красива. Также не забудьте попробовать местные блюда, такие как бешбармак и кумыс.</p>
+    </section>
+
+    <section>
+        <h2>Оставьте ваш отзыв о поездке в Алматы</h2>
+        <button onclick="showPopup()">Открыть форму подписки</button>
+        <div class="popup hidden">
+            <div class="popup-content">
+                <button class="close-btn" onclick="closePopup()">&times;</button>
+                <form id="multiStepForm">
+                    <!-- Шаг 1 -->
+                    <div class="form-step" id="step-1">
+                        <h2>Шаг 1: Введите ваше имя</h2>
+                        <label for="name">Имя:</label>
+                        <input type="text" id="name" name="name" required>
+                        <button type="button" class="next-btn">Далее</button>
+                    </div>
+
+                    <!-- Шаг 2 -->
+                    <div class="form-step hidden" id="step-2">
+                        <h2>Шаг 2: Введите ваш email</h2>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <button type="button" class="back-btn">Назад</button>
+                        <button type="button" class="next-btn">Далее</button>
+                    </div>
+
+                    <!-- Шаг 3 -->
+                    <div class="form-step hidden" id="step-3">
+                        <h2>Шаг 3: Оцените наш сервис</h2>
+                        <label for="rating">Оценка:</label>
+                        <select id="rating" name="rating" required>
+                            <option value="отлично">Отлично</option>
+                            <option value="хорошо">Хорошо</option>
+                            <option value="средне">Средне</option>
+                            <option value="плохо">Плохо</option>
+                        </select>
+                        <button type="button" class="back-btn">Назад</button>
+                        <button type="submit">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Карта Алматы</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14778.962905121877!2d76.89174722075587!3d43.23894989317839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836ea3ff505555%3A0x550f7367df3a5aa6!2z0JDQttCw0LTQu9C-0LPQsNGA0YHQutC40Lkg0YLQtdCw0YLRgA!5e0!3m2!1sru!2skz!4v1637930057616!5m2!1sru!2skz" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+</main>
+
+<div class="card">
+    <div class="card-header">
+        Цитата
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote">
+            <p id="quote">"Чтобы построить что-то по-настоящему новое, нужно умело сочетать традиции с современными технологиями."</p>
+            <footer class="blockquote-footer" id="authors">Авторы: <cite id="authorsCite">Баймурзин Бахтияр, Куралай Тельгарина</cite></footer>
+        </blockquote>
+        <label for="languageSelector">Выберите свой язык:</label>
+        <select id="languageSelector">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="kz">Қазақша</option>
+        </select>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
